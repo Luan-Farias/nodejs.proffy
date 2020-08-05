@@ -4,10 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-      "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts"
+    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.21.2",
+    "pg": "^8.3.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.7",
