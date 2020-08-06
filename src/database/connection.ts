@@ -1,13 +1,6 @@
 import knex from 'knex';
+const dbConfig = require('../../knexfile');
 
-const db = knex({
-    client: 'pgsql',
-    connection: {
-        host: 'localhost',
-        user: 'postgres',
-        password: 'admin',
-        database: 'proffy'
-    }
-});
+const db = knex(dbConfig);
 
 export default db;
