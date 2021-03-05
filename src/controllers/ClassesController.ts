@@ -25,8 +25,6 @@ export default class ClassController {
 
         const timeInMinutes = convertHourToMinute(time);
 
-        console.log(timeInMinutes);
-
         const classes = await db ('classes')
             .whereExists(function () {
                 this.select('class_schedule.*')
@@ -89,6 +87,7 @@ export default class ClassController {
 
             return response.status(201).send();
         } catch (err) {
+            console.log(err);
             await trx.rollback();
             return response.status(400).json({
                 error: 'Unexpected error while creating new class',
